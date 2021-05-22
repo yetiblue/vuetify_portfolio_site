@@ -1,31 +1,7 @@
 <template>
   <div id="app">
     <v-app>
-      <v-toolbar>
-        <v-toolbar-title>Responsive Template Site</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-toolbar-items class="hidden-sm-and-down">
-          <v-btn v-for="item in menu" :key="item.icon" :to="item.link" flat>{{
-            item.title
-          }}</v-btn>
-        </v-toolbar-items>
-        <v-menu class="hidden-md-and-up">
-          <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
-          <v-list>
-            <v-list-tile v-for="item in menu" :key="item.icon">
-              <v-list-tile-content>
-                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-menu>
-      </v-toolbar>
-      <!-- <v-tabs show-arrows style="height:10vh" s>
-        <v-tab>Item One</v-tab>
-        <v-tab>Item Two</v-tab>
-        <v-tab>Item Three</v-tab>
-        <v-tab>Item Four</v-tab>
-      </v-tabs> -->
+      <TopNavbar />
       <v-container fluid pa-0>
         <v-row align="center" justify="center" style="height:40vh">
           <v-col
@@ -134,21 +110,12 @@
 }
 </style>
 <script>
+import TopNavbar from "~/components/TopNavbar";
 export default {
   data() {
-    return {
-      drawer: false,
-      menu: [
-        { icon: "home", title: "Link A" },
-        { icon: "info", title: "Link B" },
-        { icon: "warning", title: "Link C" }
-      ]
-    };
+    return {};
   },
-  methods: {
-    menuItems() {
-      return this.menu;
-    }
-  }
+  components: { TopNavbar },
+  methods: {}
 };
 </script>
