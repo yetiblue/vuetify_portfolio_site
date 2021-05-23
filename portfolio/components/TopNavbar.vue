@@ -1,22 +1,21 @@
 <template>
-  <v-toolbar>
-    <v-toolbar-title>Responsive Template Site</v-toolbar-title>
+  <v-toolbar color="indigo" dark fixed app>
+    <v-toolbar-title>Toolbar Mobile Menu</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn v-for="item in menu" :key="item.icon" :to="item.link" flat>{{
-        item.title
-      }}</v-btn>
-    </v-toolbar-items>
-    <v-menu class="hidden-md-and-up">
-      <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
-      <v-list>
-        <v-list-tile v-for="item in menu" :key="item.icon">
-          <v-list-tile-content>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-menu>
+
+    <div v-if="mobile">
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"
+        ><v-navigation-drawer>HELLO</v-navigation-drawer>
+      </v-app-bar-nav-icon>
+    </div>
+    <div v-else>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn v-for="item in menu" :key="item.icon" :to="item.link" flat>{{
+          item.title
+        }}</v-btn>
+      </v-toolbar-items>
+    </div>
+    <!-- <v-menu> </v-menu> -->
   </v-toolbar>
 </template>
 <script>
@@ -24,12 +23,34 @@ export default {
   data() {
     return {
       drawer: false,
+      group: null,
       menu: [
         { icon: "home", title: "Link A" },
         { icon: "info", title: "Link B" },
         { icon: "warning", title: "Link C" }
       ]
     };
+  },
+  computed: {
+    mobile() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "md":
+          return true;
+        case "sm":
+          return true;
+        case "xs":
+          return true;
+        case "lg":
+          return false;
+        case "xl":
+          return false;
+      }
+    }
+  },
+  watch: {
+    group() {
+      this.drawer = false;
+    }
   },
   methods: {
     menuItems() {
