@@ -11,17 +11,28 @@
 
         <v-row style="z-index: 1000" align="center" justify="end">
           <v-col cols="12" sm="12" md="12" lg="2" xl="2">
-            <div>
-              <v-container v-if="mobile" justify="center">
+            <div v-if="mobile">
+              <v-container justify="center">
                 <v-card class="pa-8" flat>
-                  <v-img
-                    justify="center"
-                    height="300px"
-                    width="300px"
-                    style="margin-left: 250px"
-                    src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
-                  >
-                  </v-img>
+                  <div v-if="extraSmallMobile">
+                    <v-img
+                      justify="center"
+                      height="300px"
+                      width="300px"
+                      src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+                    >
+                    </v-img>
+                  </div>
+                  <div v-else style="margin-left:250px">
+                    <v-img
+                      justify="center"
+                      height="300px"
+                      width="300px"
+                      src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+                    >
+                    </v-img>
+                  </div>
+
                   <v-card-title>
                     Name
                   </v-card-title>
@@ -32,7 +43,7 @@
                     fits
                   </v-card-text>
                   <v-card-actions>
-                    <v-icon class="ml-2 ml-lg-0">mdi-instagram</v-icon
+                    <v-icon class="ml-6 ml-sm-2 ml-lg-0">mdi-instagram</v-icon
                     ><v-icon class="ml-4">mdi-youtube</v-icon>
 
                     <v-icon class="ml-4">mdi-vimeo</v-icon>
@@ -40,31 +51,31 @@
                   >
                 </v-card></v-container
               >
-              <div v-else>
-                <v-card class="pa-8" flat>
-                  <v-img
-                    src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
-                  >
-                  </v-img>
-                  <v-card-title>
-                    Name
-                  </v-card-title>
-                  <v-card-text>
-                    I am a very cool kid who likes to fill out their information
-                    like a good kid i dont know why you would ever have it this
-                    small but ok whatever i hope that this is ok and that it
-                    fits
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-icon class="ml-2 ml-lg-0">mdi-instagram</v-icon
-                    ><v-icon class="ml-4">mdi-youtube</v-icon>
-
-                    <v-icon class="ml-4">mdi-vimeo</v-icon>
-                    <v-icon class="ml-4">mdi-linkedin</v-icon></v-card-actions
-                  >
-                </v-card>
-              </div>
             </div>
+
+            <div v-else style="height:40vh">
+              <!-- <div v-if="!mobile" > -->
+              <v-card class="pa-8" flat>
+                <v-img src="https://cdn.vuetifyjs.com/images/cards/halcyon.png">
+                </v-img>
+                <v-card-title>
+                  Name
+                </v-card-title>
+                <v-card-text>
+                  I am a very cool kid who likes to fill out their information
+                  like a good kid i dont know why you would ever have it this
+                  small but ok whatever i hope that this is ok and that it fits
+                </v-card-text>
+                <v-card-actions>
+                  <v-icon class="ml-2 ml-lg-0">mdi-instagram</v-icon
+                  ><v-icon class="ml-4">mdi-youtube</v-icon>
+
+                  <v-icon class="ml-4">mdi-vimeo</v-icon>
+                  <v-icon class="ml-4">mdi-linkedin</v-icon></v-card-actions
+                >
+              </v-card>
+            </div>
+            <!-- </div> -->
           </v-col>
           <v-col
             justify="end"
@@ -103,7 +114,9 @@
 import TopNavbar from "~/components/TopNavbar";
 export default {
   data() {
-    return {};
+    return {
+      //   extraSmallMobile: true
+    };
   },
   components: { TopNavbar },
   computed: {
@@ -117,8 +130,18 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "md":
           return true;
+
         case "sm":
           return true;
+        case "xs":
+          return true;
+      }
+    },
+    extraSmallMobile() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true;
+          console.log("is small");
       }
     }
   }
