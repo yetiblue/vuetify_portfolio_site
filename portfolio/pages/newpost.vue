@@ -2,9 +2,11 @@
   <div>
     <TopNavbar />
     <v-app id="bigGrid">
-      <h1 class="text-center text-md-left ml-md-8 mt-md-2">
-        New Post
-      </h1>
+      <div v-if="!mobile">
+        <h1 class="text-center text-md-left ml-md-8 mt-md-2">
+          New Post
+        </h1>
+      </div>
       <!-- <v-form> -->
       <v-container>
         <h1 style="padding-bottom: 20px" class="text-center">
@@ -229,7 +231,6 @@ export default {
       date: null,
       startDateMenuOpen: false,
       endDateMenuOpen: false,
-
       minDate: "2019-07-04",
       maxDate: "2019-08-30",
       form: {
@@ -248,7 +249,6 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "md":
           return true;
-
         case "sm":
           return true;
         case "xs":

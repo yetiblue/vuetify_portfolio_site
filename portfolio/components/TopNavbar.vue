@@ -1,6 +1,6 @@
 <template>
   <v-toolbar color="indigo" dark fixed app>
-    <v-toolbar-title>Toolbar Mobile Menu</v-toolbar-title>
+    <v-toolbar-title>MELACAST</v-toolbar-title>
     <v-spacer></v-spacer>
 
     <div v-if="mobile">
