@@ -28,7 +28,7 @@
             whatever i hope that this is ok and that it fits
           </v-card-text>
           <v-card-actions>
-            <v-icon class="ml-6 ml-sm-2 ml-lg-0">mdi-instagram</v-icon>
+            <v-icon class="ml-9 ml-sm-2 ml-lg-0">mdi-instagram</v-icon>
             <v-icon class="ml-4">mdi-youtube</v-icon>
 
             <v-icon class="ml-4">mdi-vimeo</v-icon>

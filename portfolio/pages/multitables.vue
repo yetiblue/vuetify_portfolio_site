@@ -44,10 +44,10 @@
                   custom5cols: $vuetify.breakpoint.mdAndUp
                 }"
               >
-                <v-card style="height:25vh" outlined title>
+                <v-card :height="gridHeight" outlined title>
                   <v-img
                     class="white--text align-end"
-                    height="25vh"
+                    :height="gridHeight"
                     src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
                   >
                     <v-card-title align="end">Category Name</v-card-title>
@@ -66,10 +66,10 @@
           <v-col class="pb-lg-16" cols="12" lg="10" justify="end">
             <v-row class="mb-lg-n16 pl-4 pl-sm-10 pl-lg-0 pr-4 pr-sm-10 pr-lg-8" justify="start">
               <v-col justify="end" v-for="n in positionsGridCount" :key="n" cols="12" sm="6" lg="4">
-                <v-card style="height:25vh" outlined title>
+                <v-card :height="gridHeight" outlined title>
                   <v-img
                     class="white--text align-end"
-                    height="25vh"
+                    :height="gridHeight"
                     src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
                   >
                     <v-card-title align="end">Category Name</v-card-title>
@@ -100,10 +100,10 @@
                   custom5cols: $vuetify.breakpoint.mdAndUp
                 }"
               >
-                <v-card style="height:25vh" outlined title>
+                <v-card :height="gridHeight" outlined title>
                   <v-img
                     class="white--text align-end"
-                    height="25vh"
+                    :height="gridHeight"
                     src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
                   >
                     <v-card-title align="end">Category Name</v-card-title>
@@ -134,10 +134,10 @@
                   custom5cols: $vuetify.breakpoint.mdAndUp
                 }"
               >
-                <v-card style="height:25vh" outlined title>
+                <v-card :height="gridHeight" outlined title>
                   <v-img
                     class="white--text align-end"
-                    height="25vh"
+                    :height="gridHeight"
                     src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
                   >
                     <v-card-title align="end">Category Name</v-card-title>
@@ -200,6 +200,20 @@ export default {
           return 3;
         case "xl":
           return 3;
+      }
+    },
+    gridHeight() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "md":
+          return "20vh";
+        case "sm":
+          return "15vh";
+        case "xs":
+          return "25vh";
+        case "lg":
+          return "25vh";
+        case "xl":
+          return "25vh";
       }
     }
   }
