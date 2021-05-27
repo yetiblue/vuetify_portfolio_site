@@ -3,115 +3,67 @@
     <TopNavbar />
     <v-app id="bigGrid">
       <div v-if="!mobile">
-        <h1 class="text-center text-md-left ml-md-8 mt-md-2">
-          New Post
-        </h1>
+        <h1 class="text-center text-md-left ml-md-8 mt-md-2">New Post</h1>
       </div>
       <!-- <v-form> -->
       <v-container>
-        <h1 style="padding-bottom: 20px" class="text-center">
-          Submit Information Here
-        </h1>
+        <h1 style="padding-bottom: 20px" class="text-center">Submit Information Here</h1>
 
         <v-row justify="center">
           <v-col cols="12" sm="8">
-            <v-text-field
-              outlined
-              justify="center"
-              label="Regular"
-            ></v-text-field>
+            <v-text-field outlined justify="center" label="Regular"></v-text-field>
           </v-col>
           <v-col cols="12" sm="8">
             <v-textarea label="Bio" outlined v-model="form.bio" color="teal">
               <template v-slot:label>
-                <div>Bio <small>(optional)</small></div>
+                <div>
+                  Bio
+                  <small>(optional)</small>
+                </div>
               </template>
             </v-textarea>
           </v-col>
 
           <v-row v-if="!mobile" justify="center" class="mb-6">
-            <v-col cols="12" sm="4">
-              <v-btn
-                class="ml-md-18 ml-16"
-                width="200px"
-                height="60px"
-                color="brown"
-                depressed
-              >
-                <v-icon left>
-                  mdi-upload
-                </v-icon>
-                Thumbnail
+            <v-col class="pl-12" cols="12" sm="4">
+              <v-btn class="ml-16 ml-lg-0" width="20vw" height="60px" color="brown" depressed>
+                <v-icon left>mdi-upload</v-icon>Thumbnail
               </v-btn>
-              <input
-                ref="uploader"
-                class="d-none"
-                type="file"
-                accept="image/*"
-              />
+              <input ref="uploader" class="d-none" type="file" accept="image/*" />
             </v-col>
-            <v-col cols="12" sm="4">
-              <v-btn
-                class="ml-6"
-                width="200px"
-                height="60px"
-                color="brown"
-                depressed
-              >
-                <v-icon left>
-                  mdi-upload
-                </v-icon>
-                Gallery
+            <v-col cols="12" class="pl-8" sm="4">
+              <v-btn class="ml-lg-0" width="20vw" height="60px" color="brown" depressed>
+                <v-icon left>mdi-upload</v-icon>Gallery
               </v-btn>
-              <input
-                ref="uploader"
-                class="d-none"
-                type="file"
-                accept="image/*"
-              />
+              <input ref="uploader" class="d-none" type="file" accept="image/*" />
             </v-col>
           </v-row>
           <v-row v-if="mobile" justify="center" class="mb-6">
-            <v-col cols="12" sm="4">
+            <v-col class="pl-8 pl-sm-16 pl-md-10" cols="12" sm="4">
               <v-btn
                 justify="center"
-                class="ml-16"
-                width="200px"
+                class="ml-sm-4"
+                :width="buttonWidth"
                 height="60px"
                 color="brown"
                 depressed
               >
-                <v-icon left>
-                  mdi-upload
-                </v-icon>
-                Thumbnail
+                <v-icon left>mdi-upload</v-icon>Thumbnail
               </v-btn>
-              <input
-                ref="uploader"
-                class="d-none"
-                type="file"
-                accept="image/*"
-              />
+              <input ref="uploader" class="d-none" type="file" accept="image/*" />
             </v-col>
-            <v-col cols="8" sm="4">
+            <v-col cols="12" class="pl-8 pl-sm-4" sm="4">
               <v-btn
+                class="ml-sm-4"
                 justify="center"
-                width="200px"
+                :width="buttonWidth"
                 height="60px"
                 color="brown"
                 depressed
               >
-                <v-icon left>
-                  mdi-upload
-                </v-icon>
-                Gallery
+                <v-icon left>mdi-upload</v-icon>Gallery
               </v-btn>
-              <input
-                ref="uploader"
-                class="d-none"
-                type="file"
-                accept="image/*"
-              />
+              <input ref="uploader" class="d-none" type="file" accept="image/*" />
             </v-col>
           </v-row>
           <v-col cols="12" sm="8">
@@ -150,13 +102,7 @@
               min-width="290px"
             >
               <template v-slot:activator="{ on }">
-                <v-text-field
-                  outlined
-                  label="End Date"
-                  readonly
-                  :value="form.end_date"
-                  v-on="on"
-                ></v-text-field>
+                <v-text-field outlined label="End Date" readonly :value="form.end_date" v-on="on"></v-text-field>
               </template>
               <v-date-picker
                 v-model="form.end_date"
@@ -166,54 +112,24 @@
               ></v-date-picker>
             </v-menu>
           </v-col>
-          <v-col outlined style="height=10vh" cols="6" sm="6"
-            ><v-checkbox
-              v-model="form.tags"
-              label="Travel"
-              color="green"
-              value="Travel"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="form.tags"
-              label="Paid"
-              color="green"
-              value="Paid"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="form.tags"
-              label="Paid"
-              color="green"
-              value="Paid"
-            ></v-checkbox>
+          <v-col outlined style="height=10vh" cols="6" sm="6">
+            <v-checkbox v-model="form.tags" label="Travel" color="green" value="Travel"></v-checkbox>
+            <v-checkbox v-model="form.tags" label="Paid" color="green" value="Paid"></v-checkbox>
+            <v-checkbox v-model="form.tags" label="Paid" color="green" value="Paid"></v-checkbox>
           </v-col>
-          <v-col outlined style="height=10vh" cols="4" sm="2"
-            ><v-checkbox
-              v-model="form.tags"
-              label="Travel"
-              color="green"
-              value="Travel"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="form.tags"
-              label="Paid"
-              color="green"
-              value="Paid"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="form.tags"
-              label="Paid"
-              color="green"
-              value="Paid"
-            ></v-checkbox>
+          <v-col outlined style="height=10vh" cols="4" sm="2">
+            <v-checkbox v-model="form.tags" label="Travel" color="green" value="Travel"></v-checkbox>
+            <v-checkbox v-model="form.tags" label="Paid" color="green" value="Paid"></v-checkbox>
+            <v-checkbox v-model="form.tags" label="Paid" color="green" value="Paid"></v-checkbox>
           </v-col>
         </v-row>
 
         <v-row justify="center">
           <v-col cols="6">
-            <v-btn class="brown" style="margin-top: 50px"> Back</v-btn>
+            <v-btn class="brown" style="margin-top: 50px">Back</v-btn>
           </v-col>
           <v-col cols="4" sm="2">
-            <v-btn style="margin-top: 50px;"> Next </v-btn>
+            <v-btn style="margin-top: 50px;">Next</v-btn>
           </v-col>
         </v-row>
       </v-container>
@@ -253,6 +169,20 @@ export default {
           return true;
         case "xs":
           return true;
+        case "lg":
+          return false;
+      }
+    },
+    buttonWidth() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "md":
+          return "20vw";
+        case "sm":
+          return "20vw";
+        case "xs":
+          return "90vw";
+        case "lg":
+          return false;
       }
     }
   }
