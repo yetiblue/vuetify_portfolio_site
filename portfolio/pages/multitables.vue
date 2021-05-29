@@ -152,13 +152,15 @@
         </v-row>
       </div>
     </v-app>
+    <BottomFooterComponent />
   </div>
 </template>
 <script>
 import SideBarComponent from "~/components/SideBarComponent";
 import TopNavbar from "~/components/TopNavbar";
+import BottomFooterComponent from "~/components/BottomFooterComponent";
 export default {
-  components: { SideBarComponent, TopNavbar },
+  components: { SideBarComponent, TopNavbar, BottomFooterComponent },
   data() {
     return { sideHeight: `20vh` };
   },

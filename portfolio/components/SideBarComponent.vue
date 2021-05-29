@@ -22,6 +22,7 @@
           </div>
 
           <v-card-title>Name</v-card-title>
+          <v-card-subtitle>Director</v-card-subtitle>
           <v-card-text>
             I am a very cool kid who likes to fill out their information like a
             good kid i dont know why you would ever have it this small but ok
@@ -44,6 +45,7 @@
         <v-card class="pa-8" flat>
           <v-img src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"></v-img>
           <v-card-title>Name</v-card-title>
+          <v-card-subtitle>Director</v-card-subtitle>
           <v-card-text>
             I am a very cool kid who likes to fill out their information like a
             good kid i dont know why you would ever have it this small but ok
@@ -56,6 +58,10 @@
             <v-icon class="ml-4">mdi-vimeo</v-icon>
             <v-icon class="ml-4">mdi-linkedin</v-icon>
           </v-card-actions>
+
+          <v-btn block>My Projects</v-btn>
+          <v-btn block>Edit Profile</v-btn>
+          <v-btn block>Archived Projects</v-btn>
         </v-card>
       </div>
     </div>
