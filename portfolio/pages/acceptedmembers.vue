@@ -3,7 +3,41 @@
     <TopNavbar />
     <v-app>
       <v-row flat justify="end">
-        <SideBarComponent :sideHeight="sideHeight" />
+        <SideBarComponent :sideHeight="sideHeight">
+          <template #userDesktopProfile>
+            <v-card-subtitle>www.melacast.com</v-card-subtitle>
+            <v-card-actions>
+              <v-icon class="ml-2 ml-lg-0">mdi-instagram</v-icon>
+              <v-icon class="ml-4">mdi-youtube</v-icon>
+
+              <v-icon class="ml-4">mdi-vimeo</v-icon>
+              <v-icon class="ml-4">mdi-linkedin</v-icon>
+            </v-card-actions>
+            <v-card-title>Project Interests</v-card-title>
+            <v-card-text>Cool Stuff</v-card-text>
+            <v-card-text>Cool Stuff</v-card-text>
+            <v-card-text>Cool Stuff</v-card-text>
+            <v-btn class="mb-2 brown" elevation="0" block>Contact Me</v-btn>
+            <v-card-title>Languages</v-card-title>
+          </template>
+          <template #userMobileProfile>
+            <v-card-subtitle>www.melacast.com</v-card-subtitle>
+            <v-card-actions>
+              <v-icon class="ml-2 ml-lg-0">mdi-instagram</v-icon>
+              <v-icon class="ml-4">mdi-youtube</v-icon>
+
+              <v-icon class="ml-4">mdi-vimeo</v-icon>
+              <v-icon class="ml-4">mdi-linkedin</v-icon>
+            </v-card-actions>
+            <v-card-title>Project Interests</v-card-title>
+            <v-card-text>Cool Stuff</v-card-text>
+            <v-card-text>Cool Stuff</v-card-text>
+            <v-card-text>Cool Stuff</v-card-text>
+            <v-btn class="mb-2 brown" elevation="0" block>Contact Me</v-btn>
+            <v-card-title>Languages</v-card-title>
+          </template>
+        </SideBarComponent>
+
         <v-col cols="12" lg="10">
           <v-list class="ml-lg-n5 px-5 pr-sm-10" two-line>
             <v-subheader>Pirates of the caribbean 10</v-subheader>

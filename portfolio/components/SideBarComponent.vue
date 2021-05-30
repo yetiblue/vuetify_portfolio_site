@@ -24,14 +24,7 @@
           <!-- navigation buttons -->
           <slot name="directorMobileSlot"></slot>
           <slot name="userMobileSlot"></slot>
-
-          <v-card-actions>
-            <v-icon class="ml-9 ml-sm-2 ml-lg-0">mdi-instagram</v-icon>
-            <v-icon class="ml-4">mdi-youtube</v-icon>
-
-            <v-icon class="ml-4">mdi-vimeo</v-icon>
-            <v-icon class="ml-4">mdi-linkedin</v-icon>
-          </v-card-actions>
+          <slot name="userMobileProfile"></slot>
         </v-card>
       </v-container>
     </div>
@@ -45,14 +38,7 @@
           <!-- navigation buttons -->
           <slot name="directorDesktopSlot"></slot>
           <slot name="userDesktopSlot"></slot>
-
-          <v-card-actions>
-            <v-icon class="ml-2 ml-lg-0">mdi-instagram</v-icon>
-            <v-icon class="ml-4">mdi-youtube</v-icon>
-
-            <v-icon class="ml-4">mdi-vimeo</v-icon>
-            <v-icon class="ml-4">mdi-linkedin</v-icon>
-          </v-card-actions>
+          <slot name="userDesktopProfile"></slot>
         </v-card>
       </div>
     </div>
