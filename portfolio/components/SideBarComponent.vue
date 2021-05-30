@@ -21,13 +21,10 @@
             ></v-img>
           </div>
 
-          <v-card-title>Name</v-card-title>
-          <v-card-subtitle>Director</v-card-subtitle>
-          <v-card-text>
-            I am a very cool kid who likes to fill out their information like a
-            good kid i dont know why you would ever have it this small but ok
-            whatever i hope that this is ok and that it fits
-          </v-card-text>
+          <!-- navigation buttons -->
+          <slot name="directorMobileSlot"></slot>
+          <slot name="userMobileSlot"></slot>
+
           <v-card-actions>
             <v-icon class="ml-9 ml-sm-2 ml-lg-0">mdi-instagram</v-icon>
             <v-icon class="ml-4">mdi-youtube</v-icon>
@@ -42,15 +39,13 @@
     <div v-else>
       <div :style="{ height: sideHeight }">
         <!-- <div v-if="!mobile" > -->
-        <v-card class="pa-8" flat>
+        <v-card elevation="0" class="pa-8">
           <v-img src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"></v-img>
-          <v-card-title>Name</v-card-title>
-          <v-card-subtitle>Director</v-card-subtitle>
-          <v-card-text>
-            I am a very cool kid who likes to fill out their information like a
-            good kid i dont know why you would ever have it this small but ok
-            whatever i hope that this is ok and that it fits
-          </v-card-text>
+
+          <!-- navigation buttons -->
+          <slot name="directorDesktopSlot"></slot>
+          <slot name="userDesktopSlot"></slot>
+
           <v-card-actions>
             <v-icon class="ml-2 ml-lg-0">mdi-instagram</v-icon>
             <v-icon class="ml-4">mdi-youtube</v-icon>
@@ -58,10 +53,6 @@
             <v-icon class="ml-4">mdi-vimeo</v-icon>
             <v-icon class="ml-4">mdi-linkedin</v-icon>
           </v-card-actions>
-
-          <v-btn block>My Projects</v-btn>
-          <v-btn block>Edit Profile</v-btn>
-          <v-btn block>Archived Projects</v-btn>
         </v-card>
       </div>
     </div>
