@@ -3,7 +3,31 @@
     <TopNavbar />
     <v-app>
       <v-row flat justify="end">
-        <SideBarComponent :sideHeight="sideHeight" />
+        <SideBarComponent :sideHeight="sideHeight">
+          <template #userDesktopSlot>
+            <v-card-title>Name</v-card-title>
+            <v-card-subtitle>User</v-card-subtitle>
+            <v-btn class="mb-2" elevation="0" block>Dashboard</v-btn>
+            <v-btn class="mb-2" elevation="0" block>Applications</v-btn>
+            <v-btn class="pr-2 mb-1" elevation="0" block>Edit Profile</v-btn>
+          </template>
+
+          <template #userMobileSlot>
+            <v-card-title>Name</v-card-title>
+            <v-card-subtitle>User</v-card-subtitle>
+            <v-row>
+              <v-col cols="12" sm="4">
+                <v-btn class="grey" elevation="0" block :to="'google.com'">Dashboard</v-btn>
+              </v-col>
+              <v-col cols="12" sm="4">
+                <v-btn elevation="0" block :to="'google.com'">Applications</v-btn>
+              </v-col>
+              <v-col cols="12" sm="4">
+                <v-btn elevation="0" block :to="'google.com'">Edit Profile</v-btn>
+              </v-col>
+            </v-row>
+          </template>
+        </SideBarComponent>
 
         <v-col class="pt-11 mt-sm-n16 mt-lg-0" cols="12" sm="12" lg="9">
           <v-col>
@@ -44,6 +68,7 @@
                   custom5cols: $vuetify.breakpoint.mdAndUp
                 }"
               >
+                <!-- slot -->
                 <v-card :height="gridHeight" outlined title>
                   <v-img
                     class="white--text align-end"
@@ -56,6 +81,7 @@
                     <v-row align="center" justify="end"></v-row>
                   </v-img>
                 </v-card>
+                <!-- slot -->
               </v-col>
             </v-row>
           </v-col>
@@ -152,15 +178,17 @@
         </v-row>
       </div>
     </v-app>
+    <BottomFooterComponent />
   </div>
 </template>
 <script>
 import SideBarComponent from "~/components/SideBarComponent";
 import TopNavbar from "~/components/TopNavbar";
+import BottomFooterComponent from "~/components/BottomFooterComponent";
 export default {
-  components: { SideBarComponent, TopNavbar },
+  components: { SideBarComponent, TopNavbar, BottomFooterComponent },
   data() {
-    return { sideHeight: `20vh` };
+    return { sideHeight: `20vh`, isUser: true, isDirector: false };
   },
   computed: {
     forIpad() {

@@ -1,21 +1,22 @@
 <template>
-  <v-toolbar color="indigo" dark fixed app>
+  <v-toolbar elevation="0" dark>
     <v-toolbar-title>MELACAST</v-toolbar-title>
     <v-spacer></v-spacer>
 
     <div v-if="mobile">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"
-        ><v-navigation-drawer>HELLO</v-navigation-drawer>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer">
+        <v-navigation-drawer>HELLO</v-navigation-drawer>
       </v-app-bar-nav-icon>
     </div>
     <div v-else>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn v-for="item in menu" :key="item.icon" :to="item.link" flat>{{
+        <v-btn v-for="item in menu" :key="item.icon" :to="item.link" flat>
+          {{
           item.title
-        }}</v-btn>
+          }}
+        </v-btn>
       </v-toolbar-items>
     </div>
-    <!-- <v-menu> </v-menu> -->
   </v-toolbar>
 </template>
 <script>
