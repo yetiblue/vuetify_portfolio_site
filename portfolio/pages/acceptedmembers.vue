@@ -5,62 +5,71 @@
       <v-row flat justify="end">
         <SideBarComponent :sideHeight="sideHeight">
           <template #userDesktopProfile>
-            <v-card-subtitle>www.melacast.com</v-card-subtitle>
-            <v-card-actions>
-              <v-icon class="ml-2 ml-lg-0">mdi-instagram</v-icon>
+            <v-card-subtitle class="ml-1 text-left">www.melacast.com</v-card-subtitle>
+            <v-card-actions class="justify-center">
+              <v-icon class="ml-2 ml-lg-n3">mdi-instagram</v-icon>
               <v-icon class="ml-4">mdi-youtube</v-icon>
 
               <v-icon class="ml-4">mdi-vimeo</v-icon>
               <v-icon class="ml-4">mdi-linkedin</v-icon>
             </v-card-actions>
-            <v-card-title>Project Interests</v-card-title>
-            <v-card-text>Cool Stuff</v-card-text>
-            <v-card-text>Cool Stuff</v-card-text>
-            <v-card-text>Cool Stuff</v-card-text>
+            <v-divider class="mt-2 mx-4"></v-divider>
+            <v-card-subtitle class="justify-start">
+              <h3>Project Interests:</h3>
+            </v-card-subtitle>
+            <!-- <template > -->
+            <div v-for="tab in projectInterests" :key="tab">
+              <v-card-text class="mt-n6 justify-center">- {{tab}}</v-card-text>
+            </div>
+            <!-- </template> -->
             <v-btn class="mb-2 brown" elevation="0" block>Contact Me</v-btn>
             <v-card-title>Languages</v-card-title>
           </template>
+
           <template #userMobileProfile>
-            <v-card-subtitle>www.melacast.com</v-card-subtitle>
-            <v-card-actions>
+            <v-card-subtitle class="text-center">www.melacast.com</v-card-subtitle>
+            <v-card-actions class="justify-center">
               <v-icon class="ml-2 ml-lg-0">mdi-instagram</v-icon>
               <v-icon class="ml-4">mdi-youtube</v-icon>
 
               <v-icon class="ml-4">mdi-vimeo</v-icon>
               <v-icon class="ml-4">mdi-linkedin</v-icon>
             </v-card-actions>
-            <v-card-title>Project Interests</v-card-title>
-            <v-card-text>Cool Stuff</v-card-text>
-            <v-card-text>Cool Stuff</v-card-text>
-            <v-card-text>Cool Stuff</v-card-text>
-            <v-btn class="mb-2 brown" elevation="0" block>Contact Me</v-btn>
-            <v-card-title>Languages</v-card-title>
+            <v-card-title class="justify-center">Project Interests</v-card-title>
+            <v-card-text class="text-center">Cool Stuff Cool Stuff Cool Stuff</v-card-text>
+            <v-card-actions class="justify-center">
+              <v-btn class="mb-2 brown mx-auto" elevation="0">Contact Me</v-btn>
+            </v-card-actions>
+            <!-- MOVE LANGUAGES TO PROFILE CARD SECTION BELOW -->
+            <!-- <v-card-title>Languages</v-card-title> -->
           </template>
         </SideBarComponent>
 
         <v-col cols="12" lg="10">
           <v-list class="ml-lg-n5 px-5 pr-sm-10" two-line>
             <v-subheader>Pirates of the caribbean 10</v-subheader>
+
             <v-header class="text-sm-h3 text-h6 justify-xs-center">APPLICANTS</v-header>
 
             <v-row v-if="!isMobile" class="mb-5">
               <v-combobox
                 class="mt-6"
-                v-model="chips"
+                v-model="filterValue"
                 :items="items"
                 clearable
-                label="Your favorite hobbies"
+                label="Apply Filters"
                 multiple
                 prepend-icon="mdi-filter-variant"
                 solo
               >
-                <template v-slot:selection="{  item }">
+                <template v-slot:selection="{ item }">
                   <v-chip close @click:close="remove(item)">
                     <strong>{{ item }}</strong>&nbsp;
                     <span>(interest)</span>
                   </v-chip>
                 </template>
               </v-combobox>
+              <v-btn class="mt-8 white" elevation="0" @click="filter()">Filter</v-btn>
               <!-- slot -->
               <!-- <v-col cols="3">
                 <v-btn class="grey" elevation="0" block :to="'google.com'">Accepted</v-btn>
@@ -139,14 +148,37 @@ export default {
   data() {
     return {
       chips: [],
-      items: ["Streaming", "Eating"],
       sideHeight: `20vh`,
       name: "tom",
       date: "9/20/2021",
       link: "http:idk.com",
-      value: [],
+      filterValue: [],
       mobileTabs: ["Accepted", "Declined", "Pending", "Archived"],
-      items: ["foo", "bar", "fizz", "buzz"],
+      projectInterests: ["horror, Thriller, Scary"],
+      items: ["actor", "Dancer", "makeup"],
+      returnedValues: [],
+      actors: [
+        {
+          id: 1,
+          name: "timmy",
+          role: "actor"
+        },
+        {
+          id: 2,
+          name: "Tom",
+          role: "Dancer"
+        },
+        {
+          id: 3,
+          name: "Tam",
+          role: "router"
+        },
+        {
+          id: 4,
+          name: "Tamantha",
+          role: "makeup"
+        }
+      ],
       applicants: [
         {
           date: "Jan 9, 2014",
@@ -200,8 +232,19 @@ export default {
       window.alert(clickItem);
     },
     remove(item) {
-      this.chips.splice(this.chips.indexOf(item), 1);
-      this.chips = [...this.chips];
+      console.log("REMOVE");
+      this.filterValue.splice(this.filterValue.indexOf(item), 1);
+      this.filterValue = [...this.filterValue];
+    },
+    filter() {
+      this.returnedValues = [];
+      let testArray = this.filterValue;
+      for (let i = 0; i < testArray.length; i++) {
+        // console.log(testArray[i]);
+        const result = this.actors.filter(item => item.role == testArray[i]);
+
+        this.returnedValues.push(result);
+      }
     }
   }
 };
