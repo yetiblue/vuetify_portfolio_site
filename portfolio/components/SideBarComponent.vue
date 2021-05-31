@@ -5,9 +5,9 @@
         <v-card class="pa-8" flat>
           <div v-if="extraSmallMobile">
             <v-img
-              justify="center"
-              height="300px"
-              width="300px"
+              class="mx-auto"
+              height="200px"
+              width="200px"
               src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
             ></v-img>
           </div>
@@ -15,8 +15,8 @@
             <v-img
               class="mx-auto"
               justify="center"
-              height="300px"
-              width="300px"
+              height="200px"
+              width="200px"
               src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
             ></v-img>
           </div>

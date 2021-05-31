@@ -19,7 +19,7 @@
             </v-card-subtitle>
             <!-- <template > -->
             <div v-for="tab in projectInterests" :key="tab">
-              <v-card-text class="mt-n6 justify-center">- {{tab}}</v-card-text>
+              <v-card-text class="mt-n6 justify-center">{{tab}}</v-card-text>
             </div>
             <!-- </template> -->
             <v-btn class="mb-2 brown" elevation="0" block>Contact Me</v-btn>
@@ -46,7 +46,7 @@
         </SideBarComponent>
 
         <v-col cols="12" lg="10">
-          <v-list class="ml-lg-n5 px-5 pr-sm-10" two-line>
+          <v-list class="ml-lg-n5 px-5 pr-sm-10 mt-n10 mt-lg-0" two-line>
             <v-subheader>Pirates of the caribbean 10</v-subheader>
 
             <v-header class="text-sm-h3 text-h6 justify-xs-center">APPLICANTS</v-header>
