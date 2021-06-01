@@ -32,7 +32,7 @@
     <div v-else>
       <div :style="{ height: sideHeight }">
         <!-- <div v-if="!mobile" > -->
-        <v-card elevation="0" class="pa-8">
+        <v-card elevation="0" class="pb-lg-n16 pa-8">
           <v-img src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"></v-img>
 
           <!-- navigation buttons -->
